@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script is for transfers a file from our client to a server in Root Path:
+#----------------------------------------------------------------------------
+# USAGE: ./transfer_file FILE IP USERNAME PATH_SSH_KEY(~/.ssh/holberton [Private])
+#----------------------------------------------------------------------------
+
+if [ $# -lt 3 ]; then
+	echo "Usage: transfer_file FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+	scp -o "StrictHostKeyChecking=no" -i "$4" "$1" "$3"@"$2":~/
+fi
