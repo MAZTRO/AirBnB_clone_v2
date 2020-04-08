@@ -10,14 +10,18 @@ env.password = "MAZTRO"
 
 
 def do_clean(number=0):
-	local_path = "versions/"
-	server_path = "/data/web_static/releases/"
-	if (int(number) == 1 or int(number) == 0):
-		local('find {} -type f -name "web_static_*" | sort -n | head -n -1 | xargs rm -f'.format(local_path))
-		sudo('find {} -type d -name "web_static_*" | sort -n | head -n -1 | sudo xargs rm -rf'.format(server_path))
-	elif (int(number) > 1):
-		local('find versions/ -type f -name "web_static_*" | sort -n | head -n -{} | xargs rm -f'.format(number))
-		sudo('find {} -type d -name "web_static_*" | sort -n | head -n -{} | sudo xargs rm -rf'.format(server_path, number))
+    local_path = "versions/"
+    server_path = "/data/web_static/releases/"
+    local_name = '-type f -name "web_static_*"'
+    server_name = '-type d -name "web_static_*"'
+    local_pipe = "| sort -n | head -n -1 | xargs rm -f"
+    server_pipe = "| sort -n | head -n -1 | sudo xargs rm -rf"
 
-	""" find versions/ -type f -name "web_static_*" | sort -n | head -n -2 | xargs rm -f """
-	""" find versions/ -type d -name "web_static_*" | sort -n | head -n -2 | xargs rm -rf """
+    if (int(number) == 1 or int(number) == 0):
+        local('find {} {} {}'.format(local_path, local_name, local_pipe))
+        sudo('find {} {} {}'.format(server_path, server_name, server_pipe))
+    elif (int(number) > 1):
+        local('find {} {} | sort -n | head -n -{} | \
+xargs rm -f'.format(local_path, local_name, number))
+        sudo('find {} {} | sort -n | head -n -{} | \
+sudo xargs rm -rf'.format(server_path, server_name, number))
