@@ -27,8 +27,7 @@ def do_deploy(archive_path):
         sudo("mv {0}{1}/web_static/* {0}{1}".format(pth_re, fld[0]))
         sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
         sudo("rm -rf /data/web_static/current")
-        sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
-        """ sudo("sudo chown -R ubuntu:ubuntu /data/") """
+        sudo("ln -s {}{} {}".format(pth_re, fld[0], pth_cur))
         print("New version deployed!")
         return True
     else:
