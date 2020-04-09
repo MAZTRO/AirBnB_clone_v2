@@ -31,4 +31,5 @@ def do_deploy(archive_path):
         """ sudo("sudo chown -R ubuntu:ubuntu /data/") """
         print("New version deployed!")
         return True
-    return False
+    else:
+        return False
