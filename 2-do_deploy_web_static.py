@@ -28,7 +28,6 @@ def do_deploy(archive_path):
         rm_symb = sudo("rm -rf /data/web_static/current")
         do_symb = sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
         print("New version deployed!")
-        print("")
 
         commands = [push,
                     new_dir,
