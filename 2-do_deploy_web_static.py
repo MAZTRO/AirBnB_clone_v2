@@ -30,16 +30,5 @@ def do_deploy(archive_path):
         do_symb = sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
         """ sudo("sudo chown -R ubuntu:ubuntu /data/") """
         print("New version deployed!")
-
-        commands = [push,
-                    new_dir,
-                    upk,
-                    rm_tgz,
-                    mv_stc,
-                    rm_static,
-                    rm_symb,
-                    do_symb
-                    ]
-        res = all(operation.succeeded for operation in commands)
-        return(res)
+        return True
     return False
