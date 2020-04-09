@@ -20,14 +20,14 @@ def do_deploy(archive_path):
         fls = archive_path.split("/")
         fld = fls[-1].split(".")
 
-        push = put(archive_path, "/tmp/")
-        new_dir = sudo("mkdir -p {}{}".format(pth_re, fld[0]))
-        upk = sudo("{} /tmp/{} -C {}{}/".format(com, fls[-1], pth_re, fld[0]))
-        rm_tgz = sudo("rm /tmp/{}".format(fls[-1]))
-        mv_stc = sudo("mv {0}{1}/web_static/* {0}{1}".format(pth_re, fld[0]))
-        rm_static = sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
-        rm_symb = sudo("rm -rf /data/web_static/current")
-        do_symb = sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
+        put(archive_path, "/tmp/")
+        sudo("mkdir -p {}{}".format(pth_re, fld[0]))
+        sudo("{} /tmp/{} -C {}{}/".format(com, fls[-1], pth_re, fld[0]))
+        sudo("rm /tmp/{}".format(fls[-1]))
+        sudo("mv {0}{1}/web_static/* {0}{1}".format(pth_re, fld[0]))
+        sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
+        sudo("rm -rf /data/web_static/current")
+        sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
         """ sudo("sudo chown -R ubuntu:ubuntu /data/") """
         print("New version deployed!")
         return True
