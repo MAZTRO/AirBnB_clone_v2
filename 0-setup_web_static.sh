@@ -10,6 +10,5 @@ sudo mkdir -p /data/web_static/releases/test/
 echo -e "<html>\n  <head>\n  </head>\n  <body>\n    ** Holberton School ** \n  </body>\n</html>" | sudo tee /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
-sed -i "s/root \/var\/www\/html;/root \/data\/web_static\/current\/;/g" /etc/nginx/sites-enabled/default
-sed -i "/root \/data\/web_static\/current\/;/a \ \n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-enabled/default
+sed -i "/root \/var\/www\/html;/a \ \n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-enabled/default
 sudo service nginx restart
