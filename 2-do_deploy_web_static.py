@@ -2,7 +2,7 @@
 """ Script to deploy a compressed file with Fabric into several servers"""
 from fabric.api import *
 from datetime import datetime
-import os
+import os.path
 
 env.hosts = [
     "104.196.21.123",
@@ -27,12 +27,11 @@ def do_deploy(archive_path):
         rm_static = sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
         rm_symb = sudo("rm -rf /data/web_static/current")
         do_symb = sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
-        chown = sudo("sudo chown -R ubuntu:ubuntu /data/")
+        ## sudo("sudo chown -R ubuntu:ubuntu /data/")
         print("New version deployed!")
         print("")
 
-        commands = [chown,
-                    push,
+        commands = [push,
                     new_dir,
                     upk,
                     rm_tgz,
@@ -41,6 +40,6 @@ def do_deploy(archive_path):
                     rm_symb,
                     do_symb
                     ]
-        res = all([operation.succeeded for operation in commands])
+        res = all(operation.succeeded for operation in commands)
         return(res)
     return False
