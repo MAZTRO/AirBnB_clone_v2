@@ -12,6 +12,7 @@ env.password = "MAZTRO"
 
 
 def do_deploy(archive_path):
+    """ deploy a file """
     if (os.path.isfile(archive_path)):
         com = "tar -xzf"
         pth_re = "/data/web_static/releases/"
@@ -27,9 +28,8 @@ def do_deploy(archive_path):
         rm_static = sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
         rm_symb = sudo("rm -rf /data/web_static/current")
         do_symb = sudo("ln -s {}{}/ {}".format(pth_re, fld[0], pth_cur))
-        ## sudo("sudo chown -R ubuntu:ubuntu /data/")
+        """ sudo("sudo chown -R ubuntu:ubuntu /data/") """
         print("New version deployed!")
-        print("")
 
         commands = [push,
                     new_dir,
