@@ -60,4 +60,5 @@ def deploy():
     if (os.path.isfile(path)):
         dpld = do_deploy(path)
         return (dpld)
-    return (False)
+    else:
+        return (False)
