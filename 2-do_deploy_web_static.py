@@ -12,22 +12,22 @@ env.password = "MAZTRO"
 
 
 def do_deploy(archive_path):
-    """ deploy a file """
-    if (os.path.isfile(archive_path)):
-        com = "tar -xzf"
-        pth_re = "/data/web_static/releases/"
-        pth_cur = "/data/web_static/current"
-        fls = archive_path.split("/")
-        fld = fls[-1].split(".")
-
+    if os.path.isfile(archive_path):
+        file = archive_path.split("/")
+        pt = file[-1].split(".")
         put(archive_path, "/tmp/")
-        sudo("mkdir -p {}{}".format(pth_re, fld[0]))
-        sudo("{} /tmp/{} -C {}{}/".format(com, fls[-1], pth_re, fld[0]))
-        sudo("rm /tmp/{}".format(fls[-1]))
-        sudo("mv {0}{1}/web_static/* {0}{1}".format(pth_re, fld[0]))
-        sudo("rm -rf {}{}/web_static".format(pth_re, fld[0]))
+        sudo("mkdir -p /data/web_static/releases/\
+{}".format(pt[0]))
+        sudo("tar -xzf /tmp/{} -C /data/web_static/releases/\
+{}".format(file[-1], pt[0]))
+        sudo("rm /tmp/{}".format(file[-1]))
+        sudo("mv /data/web_static/releases/{0}/web_static/* \
+/data/web_static/releases/{0}/".format(path2[0]))
+        sudo("rm -rf \
+/data/web_static/releases/{}/web_static/".format(pt[0]))
         sudo("rm -rf /data/web_static/current")
-        sudo("ln -s {}{} {}".format(pth_re, fld[0], pth_cur))
+        sudo("ln -s /data/web_static/releases/{} \
+/data/web_static/current".format(pt[0]))
         print("New version deployed!")
         return True
     else:
