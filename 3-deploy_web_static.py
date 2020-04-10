@@ -4,7 +4,6 @@ Script to compress and deploy a file
 with Fabric into several servers
 """
 from fabric.api import *
-from datetime import datetime
 do_pack = __import__('1-pack_web_static').do_pack
 do_deploy = __import__('2-do_deploy_web_static').do_deploy
 import os
