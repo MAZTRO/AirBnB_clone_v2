@@ -12,12 +12,12 @@ env.password = "MAZTRO"
 def do_clean(number=0):
     local_path = "versions/"
     server_path = "/data/web_static/releases/"
-    grep = "| grep -v test |sort|uniq -u|xargs rm -rf"
+    grep = " | grep -v test | sort | uniq -u | sudo xargs rm -rf"
 
     if (int(number) == 1 or int(number) == 0):
         number = 1
-        local("(ls -t {}|head -n {};ls){}".format(local_path, number, grep))
-        sudo("(ls -t {}|head -n {};ls){}".format(server_path, number, grep))
+        local("(ls -rt {} | head -n -{}){}".format(local_path, number, grep))
+        sudo("(ls -rt {} | head -n -{}){}".format(server_path, number, grep))
     elif (int(number) > 1):
-        local("(ls -t {}|head -n {};ls){}".format(local_path, number, grep))
-        sudo("(ls -t {}|head -n {};ls){}".format(server_path, number, grep))
+        local("(ls -rt {} | head -n -{}){}".format(local_path, number, grep))
+        sudo("(ls -rt {} | head -n -{}){}".format(server_path, number, grep))

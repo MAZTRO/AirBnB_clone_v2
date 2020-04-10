@@ -22,7 +22,7 @@ def do_deploy(archive_path):
 {}".format(file[-1], pt[0]))
         sudo("rm /tmp/{}".format(file[-1]))
         sudo("mv /data/web_static/releases/{0}/web_static/* \
-/data/web_static/releases/{0}/".format(path2[0]))
+/data/web_static/releases/{0}/".format(pt[0]))
         sudo("rm -rf \
 /data/web_static/releases/{}/web_static/".format(pt[0]))
         sudo("rm -rf /data/web_static/current")
