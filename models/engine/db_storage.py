@@ -39,8 +39,14 @@ class DBStorage:
         co_relation = ["State", "City", "User", "Place", "Review", "Amenity"]
         new_dic = {}
         listies = []
+        if (type(cls) is not str):
+            obj = cls
+            cls = str(cls)
+        else:
+            obj = eval(cls)
+
         if cls is not None:
-            listies = self.__session.query(eval(cls)).all()
+            listies = self.__session.query(obj).all()
             for obj in listies:
                 new_dic[cls + "." + obj.id] = obj
         else:
@@ -64,5 +70,8 @@ class DBStorage:
     def reload(self):
         Base.metadata.create_all(self.__engine)
         our_session = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(our_session)
-        self.__session = Session()
+        self.__session = scoped_session(our_session)
+        """ self.__session = Session() """
+
+    def close(self):
+        self.__session.remove()

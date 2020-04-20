@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from models.city import City
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+import models
 import os
 
 
@@ -21,9 +22,10 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """ cities """
-            objs = storage.all()
+            objs = models.storage.all()
             list_ob = []
-            for ob in objs:
-                if ob.place_id == self.id and obj.__class__.__name__ == 'City':
-                    list_ob.append(obj)
+            for key, value in objs.items():
+                """ value['state_id'] == self.id and """
+                if 'City' in key:
+                    list_ob.append(value)
             return (list_ob)
