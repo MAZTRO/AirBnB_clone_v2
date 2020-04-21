@@ -74,4 +74,6 @@ class FileStorage:
             pass
 
     def close(self):
+        """serialize the file path to JSON file path
+        """
         FileStorage.reload()

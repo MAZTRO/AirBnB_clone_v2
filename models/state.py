@@ -26,6 +26,6 @@ class State(BaseModel, Base):
             list_ob = []
             for key, value in objs.items():
                 """ value['state_id'] == self.id and """
-                if 'City' in key:
+                if 'City' in key and value.state_id == self.id:
                     list_ob.append(value)
             return (list_ob)
