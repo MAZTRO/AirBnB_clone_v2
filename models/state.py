@@ -25,7 +25,6 @@ class State(BaseModel, Base):
             objs = models.storage.all()
             list_ob = []
             for key, value in objs.items():
-                """ value['state_id'] == self.id and """
                 if 'City' in key and value.state_id == self.id:
                     list_ob.append(value)
             return (list_ob)

@@ -45,7 +45,7 @@ class DBStorage:
         else:
             obj = eval(cls)
 
-        if cls is not None:
+        if obj is not None:
             listies = self.__session.query(obj).all()
             for obj in listies:
                 new_dic[cls + "." + obj.id] = obj
