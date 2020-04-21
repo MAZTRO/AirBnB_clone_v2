@@ -38,7 +38,7 @@ def show_number(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def html_number(n):
-     """ Method to print a template """
+    """ Method to print a template """
     return render_template('5-number.html', n=n)
 
 if __name__ == '__main__':
