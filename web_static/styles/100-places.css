@@ -106,3 +106,32 @@ div.information div.img_baths
 	margin-right: 0px;
 	background-image: url(/AirBnB_clone/web_static/images/icon_bath.png);
 }
+
+article div.amenities
+{
+	position: relative;
+	top: 0px;
+	left: -22px;
+	margin-top: 40px;
+	width: 100%;
+	padding: 0px;
+	margin-left: 22px;
+	text-align: left;
+}
+
+div.description
+{
+	margin-bottom: 40px;
+}
+article div.amenities h2
+{
+	border-bottom: 1px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-style: solid;
+	border-color: #DDDDDD;
+	margin: 0px;
+	text-align: left;
+	font-size: 16px;
+}

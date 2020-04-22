@@ -1,11 +1,24 @@
-body {
-    margin: 0;
-    padding: 0;
-    color: #484848;
-    font-size: 14px;
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+/*
+  ========================================
+  General style
+  ========================================
+*/
+
+body
+{
+	color: #484848;
+	font-size: 14px;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding: 0px;
+	margin: 0px;
 }
-body .container {
-    max-width: 1000px;
-    margin: 30px auto;
+
+div.container
+{
+	position: relative;
+	top: 30px;
+	bottom: 30px;
+	padding: 0px;
+	max-width: 1000px;
+	margin: 0 auto;
 }

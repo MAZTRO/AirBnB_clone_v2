@@ -1,16 +1,29 @@
-footer {
-    position: fixed;
-    background: white;
-    height: 60px;
-    width: 100%;
-    bottom: 0;
-    border-top: 1px solid #CCCCCC;
+/*
+  ========================================
+  Style for FOOTER
+  ========================================
+*/
+
+footer.Principal_footer
+{
+	position: fixed;
+	bottom: 0px;
+	margin-top: 50px;
+	margin-bottom: 0px;
+	z-index: 99;
+	background-color: #FFFFFF;
+	height: 60px;
+	width: 100%;
+	border-bottom-width: 0px;
+	border-top-width: 1px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-style: solid;
+	border-color: #CCCCCC;
 }
-footer p {
-    position: absolute;
-    text-align: center;
-    top: 10%;
-    bottom: 0;
-    right: 0;
-    left: 0;
+
+p.name
+{
+	text-align: center;
+	padding: 7px;
 }
