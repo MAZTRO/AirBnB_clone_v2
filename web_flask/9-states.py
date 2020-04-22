@@ -14,7 +14,13 @@ def teardown_db(self):
 @app.route("/states", strict_slashes=False)
 def states_list():
     sts = storage.all('State')
-    return render_template('8-cities_by_states.html', states=sts)
+    return render_template('9-states.html', states=sts)
+
+
+@app.route("/states/<id>", strict_slashes=False)
+def states_list_id(id):
+    sts = storage.all('State')
+    return render_template('9-states.html', states=sts, id=id)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

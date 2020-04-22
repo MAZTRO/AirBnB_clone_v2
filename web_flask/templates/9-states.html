@@ -4,17 +4,25 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
+    {% if id %}
+    {%- for key, value in states.items() if id == value.id  %}
+        <H1>State: {{ value.name }}</H1>
+        <H3>Cities:</H3>
+        <UL>
+            {% for city in value.cities|sort(attribute='name') %}
+                <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+            {% endfor %}
+        </UL>
+    {% else %}
+        <H1>Not found!</H1>
+    {%- endfor %}
+    {% else %}
         <H1>States</H1>
         <UL>
-        {% for key, value in states.items()|sort(attribute='1.name') %}
-            <LI>{{ value.id }}: <B>{{ value.name }}</B>
-                <UL>
-                    {% for city in value.cities|sort(attribute='name') %}
-                        <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-                    {% endfor %}
-                </UL>
-            </LI>
-        {% endfor %}
+            {% for key, value in states.items()|sort(attribute='1.name') %}
+                <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
+            {% endfor %}
         </UL>
+    {% endif %}
     </BODY>
 </HTML>
