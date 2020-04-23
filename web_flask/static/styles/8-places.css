@@ -1,0 +1,112 @@
+/*
+  ========================================
+  Style for places
+  ========================================
+*/
+
+h1 {text-align: left; font-size: 30px; width: 100%; margin: 0px; padding-left: 15px;}
+
+section.places
+{
+	margin-top: 30px;
+	margin-bottom: 70px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+section.places article
+{
+	max-width: 390px;
+	padding: 20px;
+	margin: 20px;
+	border: 1px;
+	border-style: solid;
+	border-color: #FF5A5F;
+	border-radius: 4px;
+}
+
+section.places article h2
+{
+	font-size: 20px;
+	text-align: left;
+}
+
+div.price_by_night
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+div.price_by_night div p.price
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #FF5A5F;
+	border: 5px;
+	border-style: solid;;
+	border-color: #FF5A5F;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	font-size: 30px;
+}
+
+div.information
+{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px;
+	border-color: #DDDDDD;
+	border-style: solid;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	max-height: 80px;
+}
+
+div.information p
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.information div.img_guest
+{
+	position: relative;
+	top: 10px;
+	left: 3px;
+	height: 50px;
+	width: 50px;
+	margin-left: 0px;
+	margin-right: 0px;
+	background-image: url(../images/icon_group.png);
+}
+
+div.information div.img_rooms
+{
+	position: relative;
+	top: 10px;
+	left: 2px;
+	height: 50px;
+	width: 50px;
+	margin-left: 40px;
+	margin-right: 40px;
+	background-image: url(../images/icon_bed.png);
+}
+
+div.information div.img_baths
+{
+	position: relative;
+	top: 10px;
+	left: -6px;
+	height: 50px;
+	width: 50px;
+	margin-left: 20px;
+	margin-right: 0px;
+	background-image: url(../images/icon_bath.png);
+}

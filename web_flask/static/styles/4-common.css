@@ -22,3 +22,25 @@ div.container
 	max-width: 1000px;
 	margin: 0 auto;
 }
+
+/* ================== */
+/* SCROLL BAR */
+/* ================== */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #FAFAFA;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FF5A5F;
+    border-radius: 2px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #CCCCCC;
+  }
+
